@@ -5,6 +5,7 @@ import DigitalTools from './components/digitalTools/DigitalTools'
 import GetStarted from './components/getstarted/Getstarted'
 import Navbar from './components/navbar/Navbar'
 import State from './components/state/State'
+import Subscription from './components/subscription/Subscription'
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <DigitalTools/>
       <Cards/>
       <GetStarted/>
+      <Subscription/>
     </>
   )
 }
