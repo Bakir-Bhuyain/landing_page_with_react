@@ -13,29 +13,29 @@ import Subscription from './components/subscription/Subscription'
 
 function App() {
 
-  const fetchedCardInfo = async() =>{
+  const fetchedCardInfo = async () => {
     const res = await fetch('/Features.json');
     return res.json();
   }
+  const promiseCardInfo = fetchedCardInfo();
 
-const promiseCardInfo = fetchedCardInfo();
 
   return (
     <>
-      <Navbar/>
-      <Banner/>
-      <State/>
+      <Navbar />
+      <Banner />
+      <State />
       <DigitalTools/>
-      
+
       <Suspense fallback={<span className="$$loading $$loading-spinner $$loading-xl"></span>}>
         <Cards promiseCardInfo={promiseCardInfo} />
       </Suspense>
 
 
-      <GetStarted/>
-      <Subscription/>
-      <Transform/>
-      <Footer/>
+      <GetStarted />
+      <Subscription />
+      <Transform />
+      <Footer />
     </>
   )
 }
