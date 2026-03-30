@@ -2,12 +2,13 @@ import { Suspense, useState } from 'react';
 import Cards from '../cards/Cards';
 import SelectedAi from '../selectedai/SelectedAi';
 
-const DigitalTools = ({ promiseCardInfo }) => {
+const DigitalTools = ({ promiseCardInfo, selectedCards, setSelectedCards }) => {
+      console.log(selectedCards);
       // const handleCartClick = () => {
       //       console.log('click cart', carts)
       // }
       const [carts, setCarts] = useState("products");
-      console.log(carts, "this is the carts item");
+      // console.log(carts, "this is the carts item");
       return (
             <section className="w-full bg-white py-20">
 
@@ -24,7 +25,7 @@ const DigitalTools = ({ promiseCardInfo }) => {
 
                         <div className="inline-flex items-center bg-white border border-gray-100 p-1.5 rounded-full shadow-xl shadow-indigo-100/50">
 
-                              <button onClick={() => setCarts("products")} className={`${carts === "products" ? "bg-[#7c3aed]" : "bg-white" }  text-black px-8 py-3 rounded-full font-bold text-sm md:text-base transition-all hover:bg-[#6d28d9]`}>
+                              <button onClick={() => setCarts("products")} className={`${carts === "products" ? "bg-[#7c3aed]" : "bg-white"}  text-black px-8 py-3 rounded-full font-bold text-sm md:text-base transition-all hover:bg-[#6d28d9]`}>
                                     Products
                               </button>
 
@@ -42,9 +43,9 @@ const DigitalTools = ({ promiseCardInfo }) => {
                               }>
                               </Suspense>
                               {carts === "products" ? (
-                                    <Cards promiseCardInfo={promiseCardInfo} />
+                                    <Cards promiseCardInfo={promiseCardInfo} selectedCards={selectedCards} setSelectedCards={setSelectedCards}/>
                               ) : (
-                                    <SelectedAi />
+                                    <SelectedAi selectedCards={selectedCards}/>
                               )}
                         </div>
                   </div>

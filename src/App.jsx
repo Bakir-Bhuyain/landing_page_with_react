@@ -1,4 +1,4 @@
-import { Suspense} from 'react'
+import { Suspense, useState } from 'react'
 import './App.css'
 import Banner from './components/banner/Banner'
 import Cards from './components/cards/Cards'
@@ -20,20 +20,15 @@ const promiseCardInfo = fetchedCardInfo();
 
 function App() {
 
-  
+  const [selectedCards, setSelectedCards] = useState([]);
+  console.log(selectedCards)
 
   return (
     <>
       <Navbar />
       <Banner />
       <State />
-      <DigitalTools promiseCardInfo={promiseCardInfo}/>
-
-      {/* <Suspense fallback={<div className="flex justify-center py-20"><span className="$$loading $$loading-spinner $$loading-xl"></span></div>}>
-        <Cards promiseCardInfo={promiseCardInfo} />
-      </Suspense> */}
-
-
+      <DigitalTools promiseCardInfo={promiseCardInfo} selectedCards={selectedCards} setSelectedCards={setSelectedCards}/>
       <GetStarted />
       <Subscription />
       <Transform />

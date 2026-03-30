@@ -2,7 +2,7 @@ import React, { use } from 'react';
 import ModelCart from '../modelCart/ModelCart';
 
 
-const Cards = ({ promiseCardInfo }) => {
+const Cards = ({ promiseCardInfo, selectedCards, setSelectedCards }) => {
       const cards = use(promiseCardInfo);
 
 
@@ -10,7 +10,7 @@ const Cards = ({ promiseCardInfo }) => {
             <section className="max-w-[1450px] mx-auto px-6 py-16">
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {cards.map((card, index) => (
-                              <ModelCart card={card} index={index} />
+                              <ModelCart key={card.id} card={card} index={index} setSelectedCards={setSelectedCards} selectedCards={selectedCards}/>
                         ))}
                   </div>
 
