@@ -6,7 +6,7 @@ import socialMedia from '../../assets/products/social-media.png';
 import writing from '../../assets/products/writing_2327400 1.png';
 import camera from '../../assets/products/camera.png';
 
-const Cards = ({ promiseCardInfo }) => {
+const Cards = ({ promiseCardInfo}) => {
       const cards = use(promiseCardInfo);
 
       const iconList = [writing, designTool, camera, operationTool, portFolio, socialMedia];
@@ -62,6 +62,7 @@ const Cards = ({ promiseCardInfo }) => {
                               </div>
                         ))}
                   </div>
+                  
             </section>
       );
 };

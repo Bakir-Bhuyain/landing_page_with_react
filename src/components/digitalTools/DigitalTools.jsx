@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import { Suspense, useState } from 'react';
+import Cards from '../cards/Cards';
+import SelectedAi from '../selectedai/SelectedAi';
 
-const DigitalTools = () => {
-      const handleCartClick = () => {
-            console.log('click cart', carts)
-      }
+const DigitalTools = ({ promiseCardInfo }) => {
+      // const handleCartClick = () => {
+      //       console.log('click cart', carts)
+      // }
       const [carts, setCarts] = useState("products");
       console.log(carts, "this is the carts item");
       return (
@@ -26,10 +28,24 @@ const DigitalTools = () => {
                                     Products
                               </button>
 
-                              <button onClick={() => setCarts("cart")} className={`${carts === "cart" ? "bg-[#7c3aed]" : "bg-white"}  text-black px-8 py-3 rounded-full font-bold text-sm md:text-base transition-all `}>
+                              <button onClick={() => setCarts("cart")} className={`${carts === "cart" ? "bg-[#7c3aed]" : "bg-white"}  text-black px-8 py-3 rounded-full font-bold text-sm md:text-base transition-all hover:bg-[#6d28d9]`}>
                                     Cart (2)
                               </button>
 
+                        </div>
+
+                        <div className="mt-10">
+                              <Suspense fallback={
+                                    <div className="py-20 flex justify-center">
+                                          <span className="loading loading-spinner loading-lg text-[#7c3aed]"></span>
+                                    </div>
+                              }>
+                              </Suspense>
+                              {carts === "products" ? (
+                                    <Cards promiseCardInfo={promiseCardInfo} />
+                              ) : (
+                                    <SelectedAi />
+                              )}
                         </div>
                   </div>
             </section>

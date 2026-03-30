@@ -1,4 +1,4 @@
-import { Suspense } from 'react'
+import { Suspense} from 'react'
 import './App.css'
 import Banner from './components/banner/Banner'
 import Cards from './components/cards/Cards'
@@ -11,25 +11,27 @@ import State from './components/state/State'
 import Subscription from './components/subscription/Subscription'
 
 
+const fetchedCardInfo = async () => {
+  const res = await fetch('/Features.json');
+  return res.json();
+}
+const promiseCardInfo = fetchedCardInfo();
+
+
 function App() {
 
-  const fetchedCardInfo = async () => {
-    const res = await fetch('/Features.json');
-    return res.json();
-  }
-  const promiseCardInfo = fetchedCardInfo();
-
+  
 
   return (
     <>
       <Navbar />
       <Banner />
       <State />
-      <DigitalTools/>
+      <DigitalTools promiseCardInfo={promiseCardInfo}/>
 
-      <Suspense fallback={<span className="$$loading $$loading-spinner $$loading-xl"></span>}>
+      {/* <Suspense fallback={<div className="flex justify-center py-20"><span className="$$loading $$loading-spinner $$loading-xl"></span></div>}>
         <Cards promiseCardInfo={promiseCardInfo} />
-      </Suspense>
+      </Suspense> */}
 
 
       <GetStarted />
