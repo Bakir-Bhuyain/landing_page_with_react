@@ -6,7 +6,7 @@ import socialMedia from '../../assets/products/social-media.png';
 import writing from '../../assets/products/writing_2327400 1.png';
 import camera from '../../assets/products/camera.png';
 import { toast } from 'react-toastify';
-const ModelCart = ({ card, index, selectedCards, setSelectedCards, setCarts, carts }) => {
+const ModelCart = ({ card, index, selectedCards, setSelectedCards}) => {
       const iconList = [writing, designTool, camera, operationTool, portFolio, socialMedia];
 
       const [buyNow, setBuyNow] = useState(false)
