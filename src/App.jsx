@@ -26,7 +26,7 @@ function App() {
   const [carts, setCarts] = useState("products");
   return (
     <>
-      <Navbar />
+      <Navbar selectedCards={selectedCards} />
       <Banner />
       <State />
       <DigitalTools promiseCardInfo={promiseCardInfo} selectedCards={selectedCards} setSelectedCards={setSelectedCards} carts={carts} setCarts={setCarts}/>

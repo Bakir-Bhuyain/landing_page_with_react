@@ -1,14 +1,9 @@
-import { Suspense, useState } from 'react';
+import { Suspense } from 'react';
 import Cards from '../cards/Cards';
 import SelectedAi from '../selectedai/SelectedAi';
 
 const DigitalTools = ({ promiseCardInfo, selectedCards, setSelectedCards, carts, setCarts }) => {
-      console.log(selectedCards);
-      // const handleCartClick = () => {
-      //       console.log('click cart', carts)
-      // }
       
-      // console.log(carts, "this is the carts item");
       return (
             <section className="w-full bg-white py-20">
 
@@ -30,7 +25,7 @@ const DigitalTools = ({ promiseCardInfo, selectedCards, setSelectedCards, carts,
                               </button>
 
                               <button onClick={() => setCarts("cart")} className={`${carts === "cart" ? "bg-[#7c3aed]" : "bg-white"}  text-black px-8 py-3 rounded-full font-bold text-sm md:text-base transition-all hover:bg-[#6d28d9]`}>
-                                    Cart (2)
+                                    {`Carts( ${selectedCards.length})`}
                               </button>
 
                         </div>
@@ -43,9 +38,9 @@ const DigitalTools = ({ promiseCardInfo, selectedCards, setSelectedCards, carts,
                               }>
                               </Suspense>
                               {carts === "products" ? (
-                                    <Cards promiseCardInfo={promiseCardInfo} selectedCards={selectedCards} setSelectedCards={setSelectedCards} setCarts={setCarts} carts={carts}/>
+                                    <Cards promiseCardInfo={promiseCardInfo} selectedCards={selectedCards} setSelectedCards={setSelectedCards} setCarts={setCarts} carts={carts} />
                               ) : (
-                                          <SelectedAi selectedCards={selectedCards} setCarts={setCarts} carts={carts} setSelectedCards={setSelectedCards}/>
+                                    <SelectedAi selectedCards={selectedCards} setCarts={setCarts} carts={carts} setSelectedCards={setSelectedCards} />
                               )}
                         </div>
                   </div>

@@ -1,12 +1,11 @@
 import React from 'react';
 import cart from '../../assets/products/shopping-cart.png';
 
-const Navbar = () => {
+const Navbar = ({ selectedCards }) => {
       return (
             <nav className="w-full bg-base-100 shadow-sm sticky top-0 z-50">
                   <div className="navbar max-w-[1450px] mx-auto px-2 sm:px-6">
 
-                        {/* START: LOGO & MOBILE MENU */}
                         <div className="navbar-start">
                               {/* Mobile Hamburger Menu */}
                               <div className="dropdown">
@@ -30,7 +29,7 @@ const Navbar = () => {
                               </div>
                         </div>
 
-                        {/* CENTER: DESKTOP NAVIGATION (Hidden on Mobile/Tablet) */}
+
                         <div className="navbar-center hidden lg:flex">
                               <ul className="menu menu-horizontal gap-4 xl:gap-8 px-1 text-base font-medium">
                                     <li><a className="hover:text-indigo-500 transition-colors">Products</a></li>
@@ -41,19 +40,18 @@ const Navbar = () => {
                               </ul>
                         </div>
 
-                        {/* END: CART & COMBINED BUTTONS */}
+
                         <div className="navbar-end gap-2 sm:gap-4 md:gap-6">
-                              {/* CART WITH STATIC BADGE */}
+
                               <div className="indicator">
-                                    <span className="indicator-item badge badge-secondary badge-xs bg-pink-500 border-none text-white scale-75 md:scale-100">
-                                          0
+                                    <span className="indicator-item badge badge-secondary badge-xs bg-pink-500 border-none text-white scale-75 md:scale-100 font-bold text-xs">
+                                          {`${selectedCards ?. length || 0} `}
                                     </span>
                                     <button className='rounded-full border p-1.5 md:p-2 hover:bg-gray-50 transition-all cursor-pointer'>
                                           <img src={cart} alt="cart" className="w-4 h-4 md:w-4 md:h-4" />
                                     </button>
                               </div>
 
-                              {/* COMBINED ACTION BUTTONS */}
                               <div className="flex items-center bg-gray-100 p-0.5 md:p-1 rounded-full">
                                     <a className='btn btn-ghost btn-xs sm:btn-sm md:btn-md rounded-full px-2 sm:px-4 md:px-6 font-semibold hover:bg-white text-[10px] sm:text-sm'>
                                           LogIn

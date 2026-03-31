@@ -1,14 +1,17 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
-const SelectedAi = ({ selectedCards, setSelectedCards, carts, setCarts }) => {
+const SelectedAi = ({ selectedCards, setSelectedCards}) => {
       const totalPrice = selectedCards.reduce((total, item) => total + item.price, 0) || 0
       const handlePaymentCheckOut = () => {
             setSelectedCards([])
+            toast.success("Checkout Complete")
             // console.log();
       }
       const handleRemove = (id) => {
             const filteredData = selectedCards.filter(c => c.id !== id.id)
             setSelectedCards(filteredData);
+            toast.warn("items remove from the cart")
       }
       return (
             <div className="max-w-4xl mx-auto bg-white border border-gray-100 rounded-[2.5rem] p-10 shadow-2xl shadow-indigo-100/50 text-left mt-10">
@@ -45,7 +48,6 @@ const SelectedAi = ({ selectedCards, setSelectedCards, carts, setCarts }) => {
                                                 <span className="text-zinc-400 font-medium text-lg">Total:</span>
 
                                                 <span className="text-3xl font-extrabold text-zinc-900">
-                                                      {/* ${selectedCards?.reduce((total, item) => total + item.price, 0) || 0} */}
                                                       ${totalPrice}
                                                 </span>
                                           </div>
