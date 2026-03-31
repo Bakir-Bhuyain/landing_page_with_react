@@ -2,12 +2,12 @@ import { Suspense, useState } from 'react';
 import Cards from '../cards/Cards';
 import SelectedAi from '../selectedai/SelectedAi';
 
-const DigitalTools = ({ promiseCardInfo, selectedCards, setSelectedCards }) => {
+const DigitalTools = ({ promiseCardInfo, selectedCards, setSelectedCards, carts, setCarts }) => {
       console.log(selectedCards);
       // const handleCartClick = () => {
       //       console.log('click cart', carts)
       // }
-      const [carts, setCarts] = useState("products");
+      
       // console.log(carts, "this is the carts item");
       return (
             <section className="w-full bg-white py-20">
@@ -43,9 +43,9 @@ const DigitalTools = ({ promiseCardInfo, selectedCards, setSelectedCards }) => {
                               }>
                               </Suspense>
                               {carts === "products" ? (
-                                    <Cards promiseCardInfo={promiseCardInfo} selectedCards={selectedCards} setSelectedCards={setSelectedCards}/>
+                                    <Cards promiseCardInfo={promiseCardInfo} selectedCards={selectedCards} setSelectedCards={setSelectedCards} setCarts={setCarts} carts={carts}/>
                               ) : (
-                                    <SelectedAi selectedCards={selectedCards}/>
+                                          <SelectedAi selectedCards={selectedCards} setCarts={setCarts} carts={carts} setSelectedCards={setSelectedCards}/>
                               )}
                         </div>
                   </div>

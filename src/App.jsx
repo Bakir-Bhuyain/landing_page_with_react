@@ -1,4 +1,4 @@
-import { Suspense, useState } from 'react'
+import { useState } from 'react'
 import './App.css'
 import Banner from './components/banner/Banner'
 import Cards from './components/cards/Cards'
@@ -21,14 +21,15 @@ const promiseCardInfo = fetchedCardInfo();
 function App() {
 
   const [selectedCards, setSelectedCards] = useState([]);
-  console.log(selectedCards)
+  // console.log(selectedCards)
 
+  const [carts, setCarts] = useState("products");
   return (
     <>
       <Navbar />
       <Banner />
       <State />
-      <DigitalTools promiseCardInfo={promiseCardInfo} selectedCards={selectedCards} setSelectedCards={setSelectedCards}/>
+      <DigitalTools promiseCardInfo={promiseCardInfo} selectedCards={selectedCards} setSelectedCards={setSelectedCards} carts={carts} setCarts={setCarts}/>
       <GetStarted />
       <Subscription />
       <Transform />
